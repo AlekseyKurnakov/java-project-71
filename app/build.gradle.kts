@@ -20,6 +20,7 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
+    implementation("info.picocli:picocli:4.7.7")
 }
 
 testing {
@@ -41,5 +42,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "hexlet.code.App"
 }
