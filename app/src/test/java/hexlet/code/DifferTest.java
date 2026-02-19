@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +11,7 @@ public class DifferTest {
     private static Map<String, Object> expectedFile1;
 
     @BeforeAll
-    static void getMap(){
+    static void getMap() {
         expectedFile1 = new HashMap<>();
         expectedFile1.put("host", "hexlet.io");
         expectedFile1.put("timeout", 50);
@@ -22,7 +20,7 @@ public class DifferTest {
     }
 
     @Test
-    void getDataTest() throws Exception{
+    void getDataTest() throws Exception {
 
         String path = "src/test/resources/fixtures/file1.json";
         Map<String, Object> actual = Differ.getData(path);

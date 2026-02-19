@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    checkstyle
     id("com.github.ben-manes.versions") version "0.51.0"
 }
 
@@ -44,4 +45,9 @@ java {
 application {
     // Define the main class for the application.
     mainClass = "hexlet.code.App"
+}
+checkstyle {
+    toolVersion = "10.17.0"
+    configFile = file("config/checkstyle/checkstyle.xml")
+    isIgnoreFailures = false
 }
