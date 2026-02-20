@@ -1,0 +1,7 @@
+{
+  "common": 1,
+  "setting": null,
+  "debug": true,
+  "port": 8080,
+  "mode": "prod"
+}

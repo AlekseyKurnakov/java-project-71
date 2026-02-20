@@ -1,0 +1,7 @@
+{
+  "common": 1,
+  "setting": "enabled",
+  "debug": true,
+  "port": 8081,
+  "extra": 0
+}
