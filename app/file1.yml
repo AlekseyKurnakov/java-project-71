@@ -1,7 +1,6 @@
 {
-  "common": 1,
-  "setting": null,
-  "debug": true,
-  "port": 8080,
-  "mode": "prod"
+  "host": "hexlet.io",
+  "timeout": 50,
+  "proxy": "123.234.53.22",
+  "follow": false
 }

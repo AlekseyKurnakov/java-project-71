@@ -10,4 +10,5 @@
 
 ---
 ## Демонстрация (asciinema)
-- [Differ](https://asciinema.org/a/tnhtFH6priHxM6Z6)
+- [Differ.json](https://asciinema.org/a/tnhtFH6priHxM6Z6)
+- [Differ.yml](https://asciinema.org/a/4hmPeWqiwuxmo1qX)

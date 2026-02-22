@@ -30,6 +30,7 @@ dependencies {
     implementation(libs.guava)
     implementation("info.picocli:picocli:4.7.7")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.21.0")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
 }
 
 testing {
