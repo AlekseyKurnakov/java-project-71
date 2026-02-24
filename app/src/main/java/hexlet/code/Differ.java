@@ -1,28 +1,24 @@
 package hexlet.code;
 
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 
 public class Differ {
 
 
-    public static Set<String> getAllKey(Map<String, Object> file1, Map<String, Object> file2) {
+    public static Set<String> getAllKeys(Map<String, Object> file1, Map<String, Object> file2) {
         Set<String> allKey = new TreeSet<>(file1.keySet());
         allKey.addAll(file2.keySet());
         return allKey;
     }
 
-    public static String generate(String path1, String path2) throws Exception {
+    public static String generate(String path1, String path2, String format) throws Exception {
         Map<String, Object> data1 = Parser.parse(path1);
         Map<String, Object> data2 = Parser.parse(path2);
 
-        Set<String> allKeys = getAllKey(data1, data2);
+        Set<String> allKeys = getAllKeys(data1, data2);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("{\n");
+        List<DiffEntry> diff = new LinkedList<>();
 
         for (String key : allKeys) {
             boolean in1 = data1.containsKey(key);
@@ -33,19 +29,22 @@ public class Differ {
 
             if (in1 && in2) {
                 if (Objects.equals(v1, v2)) {
-                    sb.append("    ").append(key).append(": ").append(v1).append("\n");
+                    DiffEntry unchanged = new DiffEntry(key, "unchanged", v1, v2);
+                    diff.addLast(unchanged);
                 } else {
-                    sb.append("  - ").append(key).append(": ").append(v1).append("\n");
-                    sb.append("  + ").append(key).append(": ").append(v2).append("\n");
+                    DiffEntry deleted = new DiffEntry(key, "deleted", v1, v2);
+                    DiffEntry added = new DiffEntry(key, "added", v1, v2);
+                    diff.addLast(deleted);
+                    diff.addLast(added);
                 }
             } else if (in1) {
-                sb.append("  - ").append(key).append(": ").append(v1).append("\n");
-            } else { // in2
-                sb.append("  + ").append(key).append(": ").append(v2).append("\n");
+                DiffEntry deleted = new DiffEntry(key, "deleted", v1, v2);
+                diff.addLast(deleted);
+            } else {
+                DiffEntry added = new DiffEntry(key, "added", v1, v2);
+                diff.addLast(added);
             }
         }
-
-        sb.append("}");
-        return sb.toString();
+        return Formatter.render(diff, format);
     }
 }
