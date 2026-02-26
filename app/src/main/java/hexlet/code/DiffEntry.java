@@ -14,13 +14,19 @@ public class DiffEntry {
         this.oldValue = oldValue;
         this.newValue = newValue;
     }
+
     public String getKey() {
         return key;
     }
-    public String getStatus() {return status;}
+
+    public String getStatus() {
+        return status;
+    }
+
     public Object getOldValue() {
         return oldValue;
     }
+
     public Object getNewValue() {
         return newValue;
     }

@@ -13,3 +13,4 @@
 - [Differ.json](https://asciinema.org/a/tnhtFH6priHxM6Z6)
 - [Differ.yml](https://asciinema.org/a/4hmPeWqiwuxmo1qX)
 - [Differ.json - вложенные структуры](https://asciinema.org/a/T0ITARkF9qMBU6GY)
+- [Differ.plain](https://asciinema.org/a/kXHbZ4YcPmqTpnPj)

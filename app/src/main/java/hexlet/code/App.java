@@ -31,11 +31,11 @@ public class App implements Callable<Integer> {
             paramLabel = "format"
     )
 
-    private String format;
+    private String formatName;
 
     @Override
     public Integer call() throws Exception {
-        String diff = Differ.generate(filepath1, filepath2, format);
+        String diff = Differ.generate(filepath1, filepath2, formatName);
         System.out.println(diff);
         return 0;
     }

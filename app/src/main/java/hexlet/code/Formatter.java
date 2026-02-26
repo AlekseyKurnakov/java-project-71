@@ -1,35 +1,21 @@
 package hexlet.code;
 
+import hexlet.code.formatters.PlainFormatter;
+import hexlet.code.formatters.StylishFormatter;
+
 import java.util.List;
 
 public class Formatter {
 
     public static String render(List<DiffEntry> diff, String format) {
 
-        StringBuilder sb = new StringBuilder();
+        String value = (format == null) ? "stylish" : format;
 
-        if (format.equals("stylish")) {
-            sb.append("{\n");
-            for (DiffEntry diffEntry : diff) {
-
-                String key = diffEntry.getKey();
-                Object v1 = diffEntry.getOldValue();
-                Object v2 = diffEntry.getNewValue();
-                String status = diffEntry.getStatus();
-
-                if (status.equals("unchanged")) {
-                    sb.append("    ").append(key).append(": ").append(v1).append("\n");
-                }
-                else if (status.equals("deleted")) {
-                    sb.append("  - ").append(key).append(": ").append(v1).append("\n");
-                }
-                else if (status.equals("added")) {
-                    sb.append("  + ").append(key).append(": ").append(v2).append("\n");
-                }
-            }
-            sb.append("}");
-        }
-        return sb.toString();
+        return switch (value) {
+            case "stylish" -> StylishFormatter.format(diff);
+            case "plain" -> PlainFormatter.format(diff);
+            default -> throw new IllegalArgumentException("Unsupported format: " + format);
+        };
 
     }
 }
