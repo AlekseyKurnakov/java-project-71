@@ -34,6 +34,16 @@ Gendiff — это консольная утилита для сравнения
  - проверка качества кода с помощью Checkstyle, GitHub Actions и SonarQube
 
 ---
+## Как запустить проект
+
+```bash
+# Сборка
+make build
+
+# Запуск
+make run-dist
+```
+---
 ## Демонстрация (asciinema)
 
 - [stylish — JSON](https://asciinema.org/a/tnhtFH6priHxM6Z6)
