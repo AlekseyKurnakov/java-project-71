@@ -20,7 +20,7 @@ public class Parser {
         return mapper.readValue(content, new TypeReference<Map<String, Object>>() { });
     }
 
-    private static String readFile(String path) throws Exception {
+    public static String readFile(String path) throws Exception {
         Path fullPath = Paths.get(path).toAbsolutePath().normalize();
         return Files.readString(fullPath).trim();
     }
