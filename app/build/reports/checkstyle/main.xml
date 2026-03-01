@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.17.0">
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/Parser.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/App.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/Formatter.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/formatters/StylishFormatter.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/formatters/PlainFormatter.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/formatters/JsonFormatter.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/DiffEntry.java">
+</file>
+<file name="/home/alexey-kurnakov/projects/java-project-71/app/src/main/java/hexlet/code/Differ.java">
+</file>
+</checkstyle>
