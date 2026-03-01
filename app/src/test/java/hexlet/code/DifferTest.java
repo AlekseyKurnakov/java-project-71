@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.NoSuchFileException;
 
+
+
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -12,6 +15,7 @@ public class DifferTest {
     private static final String STYLISH_FORMAT = "stylish";
     private static final String PLAIN_FORMAT = "plain";
     private static final String JSON_FORMAT = "json";
+    private static final String ILLEGAL_FORMAT = "IllegalFormat";
     private static final String PATH = "src/test/resources/fixtures/";
     private static final String JSON_FILE1 = PATH + "file1.json";
     private static final String JSON_FILE2 = PATH + "file2.json";
@@ -70,4 +74,19 @@ public class DifferTest {
         assertThrows(NoSuchFileException.class,
                 () -> Differ.generate("no-such-file.json", JSON_FILE2, STYLISH_FORMAT));
     }
+    @Test
+    void shouldGenerateStylishWhenFormatIsNull() throws Exception {
+        String actual = Differ.generate(JSON_FILE1, JSON_FILE2, null);
+        assertEquals(expectedStylish, actual);
+    }
+    @Test
+    void shouldThrowWhenFormatIsUnsupported() throws Exception {
+
+        var exception = assertThrows(IllegalArgumentException.class, () -> {
+            Differ.generate(JSON_FILE1, JSON_FILE2, ILLEGAL_FORMAT);
+        });
+        assertEquals("Unsupported format: " + ILLEGAL_FORMAT, exception.getMessage());
+
+    }
+
 }
