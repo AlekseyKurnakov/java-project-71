@@ -10,10 +10,27 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
     checkstyle
+    jacoco
     id("com.github.ben-manes.versions") version "0.51.0"
     id("org.sonarqube") version "7.2.2.6593"
 }
+jacoco {
+    toolVersion = "0.8.14"
+}
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
 
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true)
+    }
+}
 
 sonar {
     properties {
@@ -33,7 +50,10 @@ dependencies {
     implementation("info.picocli:picocli:4.7.7")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.21.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
+    testImplementation(platform("org.junit:junit-bom:5.12.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
 }
+
 
 testing {
     suites {
