@@ -25,10 +25,7 @@ sonar {
     properties {
         property("sonar.projectKey", "AlekseyKurnakov_java-project-71")
         property("sonar.organization", "alekseykurnakov")
-        property(
-            "sonar.coverage.jacoco.xmlReportPaths",
-            "${layout.buildDirectory.get()}build/reports/jacoco/test/jacocoTestReport.xml"
-        )
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
 
