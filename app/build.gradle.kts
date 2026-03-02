@@ -29,7 +29,6 @@ sonar {
     }
 }
 
-
 repositories {
     mavenCentral()
 }
