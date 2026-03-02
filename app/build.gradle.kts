@@ -7,16 +7,53 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     application
     checkstyle
     jacoco
     id("com.github.ben-manes.versions") version "0.51.0"
     id("org.sonarqube") version "7.2.2.6593"
 }
+
+group = "hexlet.code"
+version = "1.0-SNAPSHOT"
+
 jacoco {
     toolVersion = "0.8.14"
 }
+
+sonar {
+    properties {
+        property("sonar.projectKey", "AlekseyKurnakov_java-project-71")
+        property("sonar.organization", "alekseykurnakov")
+        property(
+            "sonar.coverage.jacoco.xmlReportPaths",
+            "${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
+        )
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(libs.guava)
+    implementation("info.picocli:picocli:4.7.7")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.21.0")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
+
+    testImplementation(platform("org.junit:junit-bom:5.12.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+testing {
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useJUnitJupiter("5.12.1")
+        }
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
@@ -24,59 +61,23 @@ tasks.test {
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
-
     reports {
         xml.required.set(true)
-        csv.required.set(false)
         html.required.set(true)
+        csv.required.set(false)
     }
 }
 
-sonar {
-    properties {
-        property("sonar.projectKey", "AlekseyKurnakov_java-project-71")
-        property("sonar.organization", "alekseykurnakov")
-    }
-}
-
-repositories {
-    // Use Maven Central for resolving dependencies.
-    mavenCentral()
-}
-
-dependencies {
-    // This dependency is used by the application.
-    implementation(libs.guava)
-    implementation("info.picocli:picocli:4.7.7")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.21.0")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
-    testImplementation(platform("org.junit:junit-bom:5.12.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-}
-
-
-testing {
-    suites {
-        // Configure the built-in test suite
-        val test by getting(JvmTestSuite::class) {
-            // Use JUnit Jupiter test framework
-            useJUnitJupiter("5.12.1")
-        }
-    }
-}
-
-// Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-group = "hexlet.code"
-version = "1.0-SNAPSHOT"
+
 application {
-    // Define the main class for the application.
     mainClass = "hexlet.code.App"
 }
+
 checkstyle {
     toolVersion = "10.17.0"
     configFile = file("config/checkstyle/checkstyle.xml")
