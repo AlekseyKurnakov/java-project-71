@@ -27,7 +27,7 @@ sonar {
         property("sonar.organization", "alekseykurnakov")
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            "${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
+            "${layout.buildDirectory.get()}build/reports/jacoco/test/jacocoTestReport.xml"
         )
     }
 }

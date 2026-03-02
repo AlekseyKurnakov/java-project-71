@@ -2,8 +2,8 @@
 
 [![Actions Status](https://github.com/AlekseyKurnakov/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AlekseyKurnakov/java-project-71/actions)
 [![Checkstyle](https://github.com/AlekseyKurnakov/java-project-71/actions/workflows/checkstyle.yml/badge.svg?branch=main)](https://github.com/AlekseyKurnakov/java-project-71/actions/workflows/checkstyle.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hexlet-boilerplates_java-package&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=hexlet-boilerplates_java-package)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hexlet-boilerplates_java-package&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hexlet-boilerplates_java-package)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AlekseyKurnakov_java-project-71&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AlekseyKurnakov_java-project-71)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=AlekseyKurnakov_java-project-71&metric=coverage)](https://sonarcloud.io/summary/new_code?id=AlekseyKurnakov_java-project-71)
 
 ---
 ## О проекте
