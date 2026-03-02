@@ -1,8 +1,18 @@
-# Gradle
-app/.gradle/
-app/build/
-
 # IntelliJ IDEA
 .idea/
 *.iml
-out/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Java
+*.class
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
