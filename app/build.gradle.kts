@@ -51,7 +51,7 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-group = "io.hexlet"
+group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 application {
     // Define the main class for the application.
