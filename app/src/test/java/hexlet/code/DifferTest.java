@@ -27,9 +27,9 @@ public class DifferTest {
 
     @BeforeAll
     static void loadExpectedResults() throws Exception {
-        expectedStylish = Parser.readFile(PATH + "expected_stylish.txt");
-        expectedPlain = Parser.readFile(PATH + "expected_plain.txt");
-        expectedJson = Parser.readFile(PATH + "expected_json.txt");
+        expectedStylish = Differ.readFile(PATH + "expected_stylish.txt");
+        expectedPlain = Differ.readFile(PATH + "expected_plain.txt");
+        expectedJson = Differ.readFile(PATH + "expected_json.txt");
     }
 
     @Test
@@ -88,5 +88,21 @@ public class DifferTest {
         assertEquals("Unsupported format: " + ILLEGAL_FORMAT, exception.getMessage());
 
     }
+    @Test
+    void shouldGenerateStylishFromJsonWithDefaultFormat() throws Exception {
+        String actual = Differ.generate(JSON_FILE1, JSON_FILE2);
+        assertEquals(expectedStylish, actual);
+    }
+    @Test
+    void shouldGenerateStylishFromYmlWithDefaultFormat() throws Exception {
+        String actual = Differ.generate(YML_FILE1, YML_FILE2);
+        assertEquals(expectedStylish, actual);
+    }
+    @Test
+    void shouldThrowWhenFileNotFoundWithDefaultFormat() {
+        assertThrows(NoSuchFileException.class,
+                () -> Differ.generate("no-such-file.json", JSON_FILE2));
+    }
+
 
 }
