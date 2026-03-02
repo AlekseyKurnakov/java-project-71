@@ -1,7 +1,7 @@
 package hexlet.code;
 
 
-public class DiffEntry {
+public final class DiffEntry {
 
     private final String key;
     private final String status;

@@ -22,7 +22,7 @@ public class Differ {
         return Files.readString(fullPath).trim();
     }
 
-    private static ObjectMapper getMapperByExtension(String path) throws Exception{
+    private static ObjectMapper getMapperByExtension(String path) {
         String ext = getExtension(path);
         return switch (ext) {
             case "json" -> JSON_MAPPER;
@@ -41,8 +41,9 @@ public class Differ {
         allKey.addAll(file2.keySet());
         return allKey;
     }
+
     public static String generate(String path1, String path2) throws Exception {
-        return generate( path1, path2, null);
+        return generate(path1, path2, null);
     }
 
     public static String generate(String path1, String path2, String format) throws Exception {
