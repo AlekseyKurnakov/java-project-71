@@ -27,9 +27,9 @@ public class DifferTest {
 
     @BeforeAll
     static void loadExpectedResults() throws Exception {
-        expectedStylish = Differ.readFile(PATH + "expected_stylish.txt");
-        expectedPlain = Differ.readFile(PATH + "expected_plain.txt");
-        expectedJson = Differ.readFile(PATH + "expected_json.txt");
+        expectedStylish = Differ.readContent(PATH + "expected_stylish.txt");
+        expectedPlain = Differ.readContent(PATH + "expected_plain.txt");
+        expectedJson = Differ.readContent(PATH + "expected_json.txt");
     }
 
     @Test
